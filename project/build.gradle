@@ -10,10 +10,18 @@ repositories {
 }
 
 dependencies {
+    implementation 'com.github.pengrad:java-telegram-bot-api:5.0.1'
+
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
 }
 
+tasks.withType(JavaCompile).configureEach {
+    it.options.compilerArgs.add('--enable-preview')
+    // it.options.compilerArgs.addAll(['--release', '15'])
+}
+
 test {
     useJUnitPlatform()
+    jvmArgs(['--enable-preview'])
 }
