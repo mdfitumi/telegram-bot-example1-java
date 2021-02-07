@@ -1,10 +1,12 @@
 package com.example.tgbot;
 
-import java.util.Arrays;
+import com.pengrad.telegrambot.TelegramBot;
+
 
 class Main {
     public static void main(String[] args) {
-        Arrays.stream(args).forEach(System.out::println);
-        System.out.println("done");
+        var botToken = System.getenv().get("BOT_TOKEN");
+        var bot = new Bot(new TelegramBot(botToken));
+        System.out.println("Bot has started");
     }
 }
